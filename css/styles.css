@@ -1,3 +1,4 @@
+/* Style de base */
 html {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background-color: #fff;
@@ -7,61 +8,67 @@ body {
     color: #fff;
     margin: 0;
     position: relative;
-}
-
-header, footer{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 20px 0;
-    background-color: #fff;
-    color: #353535;
-}
-
-header>nav{
-    display: flex;
-    justify-content: space-between;
-}
-
-header>nav>ul{
-    display: flex;
-    list-style: none;
-}
-
-header>nav>ul>li{
-    margin: 0 10px;
-    font-size: larger;
-}
-
-a{
-    color: #353535;
-    text-decoration: none;
-}
-
-a:hover{
-    transition: 0.3s;
-    color: #15a846;
-}
-
-main{
     background-image: url('../img/image.jpg');
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
 }
 
-.spacer{
+header, footer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px 0;
+    background-color: #fff;
+    color: #353535;
+    flex-wrap: wrap; /* Permet d'enrouler les éléments pour les petits écrans */
+}
+
+header > nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+header > nav > ul {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+header > nav > ul > li {
+    margin: 0 10px;
+    font-size: larger;
+}
+
+a {
+    color: #353535;
+    text-decoration: none;
+}
+
+a:hover {
+    transition: 0.3s;
+    color: #15a846;
+}
+
+.spacer {
     margin: 1.25em;
 }
 
-.sectionTitle{
+.sectionTitle {
     text-align: left;
     font-size: 2.5em;
     margin: 1em 0;
     margin-left: 0.5em;
 }
 
-#presentation>div{
+main>section:nth-child(even){
+    background-color: #ffffff71;
+    border-radius: 10px;
+    padding: 1em;
+    margin: 1em;
+}
+
+#presentation > div {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -69,29 +76,32 @@ main{
     margin-right: 10em;
 }
 
-#presentation>div>*{
+#presentation > div > * {
     margin-left: 1%;
     margin-right: 1%;
 }
 
-#presentation p{
+#presentation p {
     font-size: 1.5em;
+    text-align: justify;
+    padding: 1em;
+    background-color: #ffffff71;
+    border-radius: 10px;
 }
 
-#presentation>div>img{
+#presentation > div > img {
     width: 200%;
+    max-width: 400px;
     border-radius: 10%;
+        transition: 0.3s;
 }
 
-#hard-skills {
-    max-width: 600px;
-}
-
-#hard-skills>div{
-    margin: 0 auto;
+#presentation > div > img:hover {
+    transform: scale(1.10);
 }
 
 .carousel {
+    max-width: 50%;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -114,24 +124,27 @@ main{
 }
 
 .carousel-item {
-    min-width: 100%; /* Chaque élément prend toute la largeur du conteneur */
-    text-align: center; /* Centre le texte */
-    padding: 10px; /* Espacement autour du texte */
+    display: flex;
+    justify-content: column;
+    flex-direction: column;
+    color: black;
+    font-size: 3em;
+    align-items: center;
+    min-width: 100%;
+    text-align: center;
+    padding: 10px;
 }
 
 .carousel-item img {
-    max-width: 100px; /* Ajuste la taille maximale de l'image */
-    height: auto; /* Conserve le ratio de l'image */
-    display: block; /* S'assure que l'image s'affiche comme un bloc */
-    margin: 0 auto; /* Centre l'image */
-}
-
-
-#parcours-scolaire, #experiences-professionnel {
-    max-width: 600px;
+    width: 25%; /* Fixe la largeur à 25% de la taille de l'élément parent */
+    height: 75%; /* Garde le ratio original de l'image */
+    display: block;
+    margin: 0 auto;
+    object-fit: contain; /* Gère l'adaptation de l'image à son conteneur */
 }
 
 .timeline {
+    max-width: 600px;
     position: relative;
     padding-left: 40px;
     border-left: 3px solid #15a81c;
@@ -141,6 +154,11 @@ main{
 .timeline-item {
     position: relative;
     margin: 20px 0;
+    transition: 0.3s;
+}
+
+.timeline-item:hover{
+    scale: 1.1;
 }
 
 .timeline-item::before {
@@ -174,3 +192,17 @@ main{
     color: #555;
     margin-top: 5px;
 }
+
+/* Responsive - Tablettes */
+@media (max-width: 992px) {
+    #presentation > div {
+        margin: 0 5em; /* Réduit les marges pour un meilleur affichage */
+        flex-direction: column; /* Stacking elements vertically */
+        text-align: center;
+    }
+
+    #presentation p {
+        font-size: 1.2em;
+    }
+
+    .sectionTitle
