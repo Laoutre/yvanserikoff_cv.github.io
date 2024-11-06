@@ -1,7 +1,6 @@
 /* Style de base */
 html {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: #fff;
 }
 
 body {
@@ -12,6 +11,7 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
+    backdrop-filter: blur(20px);
 }
 
 header, footer {
@@ -125,7 +125,7 @@ main>section:nth-child(even){
 
 .carousel-item {
     display: flex;
-    justify-content: column;
+    justify-content: center;
     flex-direction: column;
     color: black;
     font-size: 3em;
@@ -204,5 +204,4 @@ main>section:nth-child(even){
     #presentation p {
         font-size: 1.2em;
     }
-
-    .sectionTitle
+}
